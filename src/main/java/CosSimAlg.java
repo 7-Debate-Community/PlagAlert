@@ -9,6 +9,9 @@ public class CosSimAlg implements PlagAlert {
     //Vector representing a doc
     HashMap<String, Integer> file1Vec = new HashMap<String, Integer>();
     HashMap<String, Integer> file2Vec = new HashMap<String, Integer>();
+    //common words
+    String[] common = {"the","of","and","a","to","in","is","you","that","it","he","was","for","on","are","as","with","his","they","I","at","be","this","have","from","or","one","had","by","word","but","not","what","all","were","we","when","your","can","said","there","use","an","each","which","she","do","how","their","if","will","up","other","about","out","many","then","them","these","so","some","her","would","make","like","him","into","time","has","look","two","more","write","go","see","number","no","way","could","people","my","than","first","water","been","call","who","oil","its","now","find","long","down","day","did","get","come","made","may","part"};
+
 
     public void parseFile(String relativePath1, String relativePath2) {
         file1 = new TxtFile(relativePath1);
@@ -90,6 +93,11 @@ public class CosSimAlg implements PlagAlert {
                                         final HashMap<String, Integer> rightVec) {
         final Set<String> intersection = new HashSet<String>(leftVec.keySet());
         intersection.retainAll(rightVec.keySet());
+        for (String com : common) {
+            if (intersection.contains(com)) {
+                intersection.remove(com);
+            }
+        }
         return intersection;
     }
 
