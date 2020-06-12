@@ -8,6 +8,7 @@ public class TxtFile {
     public  String content = "";
     private String[] rawSentences;
     private List<String> sentences;
+    private String[] words;
     public TxtFile(String relPath) {
         path = relPath;
     }
@@ -26,10 +27,24 @@ public class TxtFile {
         return true;
     }
 
-    private void parseTxt() {
+    public void parseSentence() {
         rawSentences = content.split("[.?!]");
         for (String sentence : rawSentences) {
             sentences.add(sentence.trim());
         }
+    }
+
+    public void parseWords() {
+        //split by space
+        words = content.split("\\s+");
+
+        //remove punctuation and special char
+        for (int i = 0; i < words.length; i++) {
+            words[i] = words[i].replaceAll("[^\\w]", "").toLowerCase();
+        }
+    }
+
+    public String[] getWords() {
+        return words;
     }
 }
