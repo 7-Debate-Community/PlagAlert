@@ -11,7 +11,7 @@ public class Main {
     public static final String RESULT_PATH = "C:\\Users\\steve\\Desktop\\output.csv";
 
     public static void main(String[] args) throws Exception {
-        PlagAlert checker = new CosSimAlg();
+        CosSimAlg checker = new CosSimAlg();
         // Declare n array to store all the files in the folders
         File[] fileList = new File(FOLDER_PATH).listFiles();
         assert fileList != null;
@@ -38,9 +38,7 @@ public class Main {
                     }
                     // If it is a file, then calculate the duplicate's plagiarism against this one and write it to the CSV
                     if (origin.isFile()) {
-                        checker.parseFile(duplicate.getPath(), origin.getPath());
-                        checker.checkPlagiarism();
-                        output.print(checker.calculateScore() + ",");
+                        output.print(checker.calculateScore(duplicate.getPath(), origin.getPath()) + ",");
                     }
                 }
                 // Move to the next line.

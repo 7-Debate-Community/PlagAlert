@@ -1,4 +1,4 @@
-public class LevenshteinAlg implements PlagAlert{
+public class LevenshteinAlg {
     private TxtFile file1;
     private TxtFile file2;
     //content in first file
