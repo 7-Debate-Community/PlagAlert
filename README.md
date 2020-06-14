@@ -9,13 +9,13 @@ This project serves as a plagiarism detector for debate speeches using multiple 
 | Levenshtein | Complete    |
 | Cosine Similarity | Complete |
 
-##Contact
+## Contact
 For more information please contact: [Yueqi Jiang](yueqij2@illinois.edu) or [Yucheng Jiang](yj17@illinois.edu).
 
-##Credit
+## Credit
 Synonyms support realized in collaboration with [Datamuse](https://www.datamuse.com/).
 
-##License
+## License
 This project is licensed under the MIT License.
 
 <!-- Markdown link & img dfn's -->
