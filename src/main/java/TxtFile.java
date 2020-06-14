@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class TxtFile {
     private final String path;
     private File file;
-    public  String content = "";
+    private String content = "";
     private String[] rawSentences;
     private List<String> sentences;
     private String[] words;
@@ -13,10 +13,15 @@ public class TxtFile {
         path = relPath;
     }
 
+    /**
+     * Read file with given path.
+     * @return true if read succeeded
+     */
     public boolean readFile() {
         try {
             file = new File(path);
             Scanner reader = new Scanner(file);
+            //read each line of the file
             while (reader.hasNextLine()) {
                 content = content.concat(reader.nextLine());
             }
@@ -27,6 +32,10 @@ public class TxtFile {
         return true;
     }
 
+    /**
+     * Parse the file into sentences.
+     * for future algorithm support
+     */
     public void parseSentence() {
         rawSentences = content.split("[.?!]");
         for (String sentence : rawSentences) {
@@ -34,6 +43,9 @@ public class TxtFile {
         }
     }
 
+    /**
+     * Parse the file into list of words.
+     */
     public void parseWords() {
         //split by space
         words = content.split("\\s+");
@@ -46,5 +58,9 @@ public class TxtFile {
 
     public String[] getWords() {
         return words;
+    }
+
+    public String getContent() {
+        return content;
     }
 }

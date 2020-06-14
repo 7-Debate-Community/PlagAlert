@@ -1,23 +1,41 @@
 public class DumbAssAlg implements PlagAlert{
     private TxtFile file1;
     private TxtFile file2;
+    //content in first file
+    private String first;
+    //content in second file
+    private String second;
+
+    /**
+     * Parse the file given and extract content from path.
+     * @param relativePath1 relative path of the first file
+     * @param relativePath2 relative path of the second file
+     */
     public void parseFile(String relativePath1, String relativePath2) {
         file1 = new TxtFile(relativePath1);
         file2 = new TxtFile(relativePath2);
         file1.readFile();
         file2.readFile();
+        first = file1.getContent().toLowerCase();
+        second = file2.getContent().toLowerCase();
     }
 
+    /**
+     * Calculate the similarity between two files.
+     * @return Levenshtein similarity
+     */
     public double calculateScore() {
-        String first = file1.content;
-        String second = file2.content;
         int maxLength = Math.max(first.length(), second.length());
         //Can't divide by 0
         if (maxLength == 0) return 1.0d;
-        return ((double) (maxLength - checkPlagiarism(first, second))) / (double) maxLength;
+        return ((double) (maxLength - checkPlagiarism())) / (double) maxLength;
     }
 
-    public int checkPlagiarism(String first, String second) {
+    /**
+     * Check for plagiarism using Levenshtein
+     * @return ~
+     */
+    public int checkPlagiarism() {
         first = first.toLowerCase();
         second = second.toLowerCase();
 
