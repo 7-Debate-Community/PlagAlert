@@ -43,7 +43,6 @@ public class CosSimAlg implements PlagAlert {
      */
     public int checkPlagiarism() {
         constructVector();
-        constructVector();
         file1Vec.remove("");
         file2Vec.remove("");
         return 0;
