@@ -1,4 +1,4 @@
-public class DumbAssAlg implements PlagAlert{
+public class LevenshteinAlg implements PlagAlert{
     private TxtFile file1;
     private TxtFile file2;
     //content in first file
