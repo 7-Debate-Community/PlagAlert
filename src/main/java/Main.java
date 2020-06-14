@@ -5,10 +5,11 @@ import java.net.URISyntaxException;
 
 public class Main {
 
+    //TODO: Add input and output file
     // the directory to where all files are stored
-    public static final String FOLDER_PATH = "C:\\Users\\steve\\Desktop\\file";
+    public static final String FOLDER_PATH = "";
     // defined the path to result file
-    public static final String RESULT_PATH = "C:\\Users\\steve\\Desktop\\output.csv";
+    public static final String RESULT_PATH = "";
 
     public static void main(String[] args) throws Exception {
         PlagAlert checker = new CosSimAlg();
